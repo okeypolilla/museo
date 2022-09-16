@@ -1,0 +1,162 @@
+/*---FONDOS---*/
+#index{
+background-image: url(museo1.jpg);
+background-size: cover;
+background-repeat: no-repeat;
+display:block;
+width: 100%;
+}
+#info{
+  background-image: url(fondo-informacion.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display:block;
+  width: 100%;
+  }
+ #inicio-sesion{
+  background-image: url(fondo-inicio-sesion.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display:block;
+  width: 100%;
+  }
+#registrarse{
+  background-image: url(fondo-registrarse.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display:block;
+  width: 100%;
+  }
+#mapa{
+  background-image: url(fondo-mapa.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display:block;
+  width: 100%;
+  }
+#turnos{
+  background-image: url(fondo-registrarse.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display:block;
+  width: 100%;
+}
+/*------------*/
+
+/*Inicio sesion y Registro*/
+.login{
+    background-color: aliceblue;
+    border-radius: 5px;
+    padding: 17px;
+    width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*------------------------*/
+
+/*---Estructura Index---*/
+.izquierda{
+  text-align: center;
+  background:#ffffff;
+  opacity: 0.3;
+  height: 100vh;
+  width: 25%;
+}
+.derecha{
+  margin: auto;
+  width: 50%;
+  height: 90vh;
+  
+}
+#pantalla-dividida{
+  display: flex;
+
+}
+#texto1{
+  background: black;
+  color: white;
+  text-align: center;
+  margin: auto;
+  padding: 10px;
+}
+/*--------------------*/
+
+/*---Estructura Mapa---*/
+.izquierda1{
+width: 33%;
+height: 100vh;
+margin:auto;
+padding: 75px;
+
+}
+.centro1{
+  width: 33%;
+  height: 100vh;
+  margin:auto;
+  padding: 75px;
+ 
+}
+.derecha1{
+  width: 33%;
+  height: 100vh;
+  margin:auto;
+  padding: 75px;
+ 
+}
+#pantalla-dividida1{
+  display: flex;
+}
+/*---------------------*/
+
+/*---Estructura Turnos---*/
+.turnos{
+  background-color: aliceblue;
+  border-radius: 5px;
+  padding: 17px;
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*-----------------------*/
+.creative{
+  margin: auto;
+  text-decoration: underline;
+  color: rgb(0, 0, 0);
+  line-height: 30px;
+  font-size: 40px;
+}
+h1{
+  font-size: 60px;
+  margin: auto;
+  margin-bottom: 40px;
+}
+p{
+  color: rgb(0, 0, 0);
+  font-size: 19px;
+  line-height: 30px;
+  margin: auto;
+}
+#leer-mas {
+  border: 1px solid rgb(0, 0, 0);
+  padding: 15px;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+  border-radius: 30px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: 30px;
+}
+#texto{
+  background-color: black;
+  border-color: black;
+  border: 1px solid rgb(0, 0, 0);
+  color: #ffffff;
+}
+#carusel{
+  border: 5px solid rgb(0, 0, 0);
+}
+
