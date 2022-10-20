@@ -2,19 +2,19 @@ const pool = require('../database/database.js');
 
 exports.getAllTodos = (req, res, next) => {
     pool.query("SELECT * FROM usuario", function (err, data, fields) {
-      if(!err){
+     if(!err){
         res.json(data)
         console.log("okey getall");
-        console.log(data);
-      };
+        console.log(res.json(data));
+     };
     });
    };
 
    exports.createTodo = (req, res, next) => {
     if (!req.body) return next(new AppError("No form data found", 404));
     const values = [req.body.name, "pending"];
-    conn.query(
-      "INSERT INTO `usuario` (`Id_Usuario`, `Nombre`, `Apellido`, `Email`, `Contraseña`, `telefono`) VALUES(?)",
+    pool.query(
+      "INSERT INTO `usuario` (`Nombre`, `Apellido`, `Email`, `Contraseña`, `telefono`) VALUES(?,?,?,?,?)",
       [values],
       function (err, data, fields) {
         if(!err){
