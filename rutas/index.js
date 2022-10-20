@@ -4,6 +4,7 @@ const controllers = require("../controladores/usuario.js");
 
 
 //rutas usuario 
+
 router.route("/gettodo").get(controllers.getAllTodos)
 router.route("/createTodo").post(controllers.createTodo);
 router.route("/get").get(controllers.getTodo);

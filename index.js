@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 //routes 
-app.use(require("./rutas/index.js"));
-app.use('/api/users',require('./controladores/users'));
+//app.use(require("./rutas/index.js"));
+app.use(require('./controladores/users.js'));
 app.use(express.static(__dirname + '/src/public'))
 
 
