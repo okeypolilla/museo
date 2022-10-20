@@ -5,7 +5,7 @@ const cors = require("cors");
 const router = require("./rutas/index.js");
 const pool = require('./database/database.js');
 
-app.set('port', 4000);
+app.set('port', 8888);
 
 
 //middlewares
