@@ -14,27 +14,27 @@
   </head>
   
   <body id="registrarse">
-    <form class="login">
+    <form action="/add" class="login">
 
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Dirección de correo electrónico</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp">
         <div id="emailHelp" class="form-text">Su correo electrónico no será compartido.</div>
       </div>
 
       <div class="mb-3">
         <label  class="form-label">Nombre</label>
-        <input type="nombre" class="form-control" id="exampleInputNombre">
+        <input type="nombre" class="form-control" name="nombre" id="exampleInputNombre">
       </div>
 
       <div class="mb-3">
         <label class="form-label">Apellido</label>
-        <input type="Apellido" class="form-control" id="exampleInputApellido">
+        <input type="Apellido" class="form-control" name="Apellido" id="exampleInputApellido">
       </div>
 
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Clave</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <input type="password" class="form-control" name="password" id="exampleInputPassword1">
       </div>
 
       <button type="submit" class="btn btn-primary">Submit</button>
