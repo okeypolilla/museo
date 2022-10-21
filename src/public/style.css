@@ -3,8 +3,9 @@
 background-image: url(museo1.jpg);
 background-size: cover;
 background-repeat:no-repeat;
-display:block;
-width: 100%;
+margin: 0;
+margin-bottom: 40px;
+
 }
 #info{
   background-image: url(museo1.jpg);
@@ -12,28 +13,28 @@ width: 100%;
   background-repeat: no-repeat;
   display:block;
   width: 100%;
-  }
- #inicio-sesion{
+}
+#inicio-sesion{
   background-image: url(fondo-inicio-sesion.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   display:block;
   width: 100%;
-  }
+}
 #registrarse{
   background-image: url(fondo-registrarse.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   display:block;
   width: 100%;
-  }
+}
 #mapa{
   background-image: url(fondo-mapa.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   display:block;
   width: 100%;
-  }
+}
 #turnos{
   background-image: url(fondo-registrarse.jpg);
   background-size: cover;
@@ -62,16 +63,18 @@ width: 100%;
   text-align: center;
   background:#ffffff;
   opacity: 0.3;
-  height: 100vh;
-  width:max-content;
-  margin: 0px;
+  height:max-content;
+  width: 25px;
+  border-radius: 3px;
+  padding: auto;
 }
 .derecha{
   flex: 2;
   margin: auto;
   width: 75%;
-  height: 100vh;
+  height:max-content;
   margin: 30px;
+  padding: auto;
 }
 #pantalla-dividida{
   display: flex;
@@ -157,6 +160,10 @@ width: 100%;
   margin: 15px;
   }
 /*---------------------*/
+html{
+  min-height: 100%;
+  position: relative;
+}
 .creative{
   margin: auto;
   text-decoration: underline;
@@ -172,7 +179,7 @@ h1{
 p{
   color: rgb(0, 0, 0);
   font-size: 19px;
-  line-height: 30px;
+  line-height: 25px;
   margin: auto;
 }
 #leer-mas {
@@ -194,6 +201,14 @@ p{
 #carusel{
   border: 5px solid rgb(0, 0, 0);
 }
-#inicio-registro{
-  float: right;
+footer{
+  text-align: center;
+  background-color: skyblue;
+  position:absolute;
+  bottom:0px;
+  width: 100%;
+  height: 40px;
+  opacity: 0.3;
 }
+
+

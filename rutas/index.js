@@ -2,6 +2,11 @@ const express = require("express");
 const router = express.Router();
 //const controllers = require("../controladores/usuario.js");
 
+router.get('/', (req, res) => {    
+    res.sendFile('./src/public/index.html', {root: __dirname })
+   
+})
+//app.use(express.static(__dirname + '/src/public'))
 
 //rutas usuario 
 

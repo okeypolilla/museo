@@ -15,8 +15,10 @@ app.use(express.urlencoded({extended: false}));
 //routes 
 //app.use('view engine','ejs');
 //app.use(require("./rutas/index.js"));
+  //Usuario
 app.use(require('./controladores/users.js'));
 app.use(express.static(__dirname + '/src/public'))
+
 
 
 //iniciar 
