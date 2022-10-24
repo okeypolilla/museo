@@ -3,11 +3,11 @@ const fs = require('fs')
 const { isBuffer } = require('util');
 
 const server = http.createServer((req,res) => {
-  const {url,method} = req;
+  const {url , method} = req;
 
   //logger
   console.log('URL: ${url} - Method: ${method}');
-  fs.readFileSync(__dirname + '/src/public',function(err, data){
+  fs.readFile('src/index.html',function(err, data){
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.write(data)
     res.end();
