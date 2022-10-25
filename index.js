@@ -5,13 +5,15 @@ const pool = require('./database/database');
 const mime = {
   'html': 'text/html',
   'css': 'text/css',
-  'jpg': 'image/jpg'
+  'jpg': 'image/jpg',
+  'ico': 'image/x-icon',
+  'mp3': 'audio/mpeg3',
+  'mp4': 'video/mp4'
 }
-
 const servidor = http.createServer((req, res) => {
   const link = new URL('http://localhost:8888' + req.url)
   const {url , method} = req;
-   console.log("URL:"+ url + "method:" + method);
+   //console.log("URL:"+ url + "method:" + method);
   let camino = 'src' + link.pathname
   if (camino == 'src/')
     camino = 'src/index.html'
