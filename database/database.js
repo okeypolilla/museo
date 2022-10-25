@@ -11,10 +11,9 @@ connection.connect(function(error){
    if(error){
       throw error;
    }else{
-      console.log('Conexion correcta.');
+      console.log('Conexion correcta. DB');
    }
 });
-//connection.end();  //para finalizar la coneccion de la base de datos
- 
+
 const pool = connection;
 module.exports = pool;

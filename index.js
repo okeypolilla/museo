@@ -1,3 +1,4 @@
+
 const http= require('http');
 const fs = require('fs');
 const pool = require('./database/database');
@@ -11,70 +12,69 @@ const mime = {
   'mp4': 'video/mp4'
 }
 
-const servidor = http.createServer((req, res) => {
-  const link = new URL('http://localhost:8888' + req.url)
-  const {url , method} = req;
-   console.log("URL:"+ url + "method:" + method);
-  let camino = 'src' + link.pathname
-  console.log("camino:"+ camino)
-  console.log(link+"link")
-  if (camino == 'src/')
-    camino = './src/index.html'
-  fs.stat(camino, error => {
-    if (!error) {
-      fs.readFile(camino, (error, contenido) => {
-        if (error) {
-          res.writeHead(500, { 'Content-Type': 'text/plain' })
-          res.write('Error interno')
-          res.end()
-        } else {
-          const vec = camino.split('.')
-          const extension = vec[vec.length - 1]
-          console.log(extension + ':extension ' )
-          const mimearchivo = mime[extension]
-          res.writeHead(200, { 'Content-Type': 'text/html' })
-          res.write(contenido)
-          res.end()
-        }
-      })
-    } else {
-      res.writeHead(404, { 'Content-Type': 'text/html' })
-      res.write('<!doctype html><html><head></head><body>Recurso inexistente</body></html>')
-      res.end()
-    };
-  })
-})
-
-servidor.listen(8888)
-
-console.log('Servidor web iniciado')
-
-
-// const server = http.createServer((req,res) => {
-//   const url = new URL('http://localhost:8888' + pedido.url)
+// const servidor = http.createServer((req, res) => {
+//   const url = new URL('http://localhost:8888' + req.url)
+//  // const {url , method} = req;
+//    //console.log("URL:"+ url + "method:" + method);
 //   let camino = 'src' + url.pathname
-//   if (camino == 'static/')
-//     camino = 'static/index.html'
-//     fs.stat(camino, error => {
-//       if (!error) {
-//         fs.readFile(camino, (error, contenido) => {
-//           if (error) {
-//             respuesta.writeHead(500, { 'Content-Type': 'text/plain' })
-//             respuesta.write('Error interno')
-//             respuesta.end()
-//           } else {
-//             const vec = camino.split('.')
-//             const extension = vec[vec.length - 1]
-//             const mimearchivo = mime[extension]
-//             res.writeHead(200, { 'Content-Type': mimearchivo })
-//             res.write(data)
-//             res.end()
-//           }
- 
-//   });
+//   if (camino == 'src/')
+//     camino = './src/index.html'
+//   fs.stat(camino, error => {
+//     if (!error) {
+//       fs.readFile(camino, (error, contenido) => {
+//         if (error) {
+//           res.writeHead(500, { 'Content-Type': 'text/plain' })
+//           res.write('Error interno')
+//           res.end()
+//         } else {
+//           const vec = camino.split('.')
+//           const extension = vec[vec.length - 1]
+//           const mimearchivo = mime[extension]
+//           res.writeHead(200, { 'Content-Type': mimearchivo })
+//           res.write(contenido)
+//           res.end()
+//         }
+//       })
+//     } else {
+//       res.writeHead(404, { 'Content-Type': 'text/html' })
+//       res.write('<!doctype html><html><head></head><body>Recurso inexistente</body></html>')
+//       res.end()
+//     };
+//   })
+// })
 
-//   server.listen(8888);
-//     });
+// servidor.listen(8888)
+
+// console.log('Servidor web iniciado')
+
+
+ const server = http.createServer((req,res) => {
+  const url = new URL('http://localhost:8888' + req.url)
+   let camino = 'src' + url.pathname
+  if (camino == 'src/')
+    camino = 'src/index.html'
+     fs.stat(camino, error => {
+      if (!error) {
+        fs.readFile(camino, (error, contenido) => {
+          if (error) {
+            res.writeHead(500, { 'Content-Type': 'text/plain' })
+            res.write('Error interno')
+            res.end()
+          } else {
+            const vec = camino.split('.')
+            const extension = vec[vec.length - 1]
+           const mimearchivo = mime[extension]
+             res.writeHead(200, { 'Content-Type': mimearchivo })
+            res.write(contenido)
+             res.end()
+          }
+         }) }
+ });
+
+
+   });
+   server.listen(8888);
+
 
  //console.log("URL:"+ url + "method:" + method);
   //fs.readFile(__dirname + '/src/index.html',function(err, data){
