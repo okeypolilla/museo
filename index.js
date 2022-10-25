@@ -11,10 +11,10 @@ const mime = {
   'mp4': 'video/mp4'
 }
 const servidor = http.createServer((req, res) => {
-  const link = new URL('http://localhost:8888' + req.url)
-  const {url , method} = req;
+ // const url = new URL('https://museo-okeypolilla.vercel.app' + req.url)
+ // const {url , method} = req;
    //console.log("URL:"+ url + "method:" + method);
-  let camino = 'src' + link.pathname
+  let camino = 'src' + url.pathname
   if (camino == 'src/')
     camino = './src/index.html'
   fs.stat(camino, error => {
