@@ -47,34 +47,46 @@ const mime = {
 
 // console.log('Servidor web iniciado')
 
+const server = http.createServer((req,res) => {
+  fs.readFile(__dirname + '/src/index.html',function(err, data){
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.write(data)
+    res.end();
 
- const server = http.createServer((req,res) => {
-  const url = new URL('https://museo-tau.vercel.app/index.html' + req.url)
-   let camino = 'src' + url.pathname
-  if (camino == 'src/')
-    camino = 'src/index.html'
-     fs.stat(camino, error => {
-      if (!error) {
-        fs.readFile(camino, (error, contenido) => {
-          if (error) {
-            res.writeHead(500, { 'Content-Type': 'text/plain' })
-            res.write('Error interno')
-            res.end()
-          } else {
-            const vec = camino.split('.')
-            const extension = vec[vec.length - 1]
-           const mimearchivo = mime[extension]
-             res.writeHead(200, { 'Content-Type': mimearchivo })
-            res.write(contenido)
-             res.end()
-          }
-         }) }
- });
-
-
-   });
+  })
+});
    server.listen(8888);
+   console.log('Servidor web iniciado')
 
+
+
+//  const server = http.createServer((req,res) => {
+//   const url = new URL('http://localhost:8888' + req.url)
+//    let camino = 'src' + url.pathname
+//   if (camino == 'src/')
+//     camino = 'src/index.html'
+//      fs.stat(camino, error => {
+//       if (!error) {
+//         fs.readFile(camino, (error, contenido) => {
+//           if (error) {
+//             res.writeHead(500, { 'Content-Type': 'text/plain' })
+//             res.write('Error interno')
+//             res.end()
+//           } else {
+//             const vec = camino.split('.')
+//             const extension = vec[vec.length - 1]
+//            const mimearchivo = mime[extension]
+//              res.writeHead(200, { 'Content-Type': mimearchivo })
+//             res.write(contenido)
+//              res.end()
+//           }
+//          }) }
+//  });
+
+
+//    });
+//    server.listen(8888);
+//    console.log('Servidor web iniciado')
 
  //console.log("URL:"+ url + "method:" + method);
   //fs.readFile(__dirname + '/src/index.html',function(err, data){
