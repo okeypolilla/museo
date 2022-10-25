@@ -1,22 +1,79 @@
+const db = require('./database/database');
 const http= require('http');
-const fs = require('fs')
-const { isBuffer } = require('util');
+const fs = require('fs');
+const pool = require('./database/database');
+const mime = {
+  'html': 'text/html',
+  'css': 'text/css',
+  'jpg': 'image/jpg'
+}
 
-const server = http.createServer((req,res) => {
-  const {url , method} = req;
-
-  //logger
-  console.log('URL: ${url} - Method: ${method}');
-  fs.readFile('src/index.html',function(err, data){
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data)
-    res.end();
-  });
-
-
+const servidor = http.createServer((req, res) => {
+  const url = new URL('http://localhost:8888' + req.url)
+  let camino = 'src' + url.pathname
+  if (camino == 'src/')
+    camino = 'src/index.html'
+  fs.stat(camino, error => {
+    if (!error) {
+      fs.readFile(camino, (error, contenido) => {
+        if (error) {
+          res.writeHead(500, { 'Content-Type': 'text/plain' })
+          res.write('Error interno')
+          res.end()
+        } else {
+          const vec = camino.split('.')
+          const extension = vec[vec.length - 1]
+          const mimearchivo = mime[extension]
+          res.writeHead(200, { 'Content-Type': mimearchivo })
+          res.write(contenido)
+          res.end()
+        }
+      })
+    } else {
+      res.writeHead(404, { 'Content-Type': 'text/html' })
+      res.write('<!doctype html><html><head></head><body>Recurso inexistente</body></html>')
+      res.end()
+    };
+  })
 })
 
-server.listen(8888);
+servidor.listen(8888)
+
+console.log('Servidor web iniciado')
+
+
+// const server = http.createServer((req,res) => {
+//   const url = new URL('http://localhost:8888' + pedido.url)
+//   let camino = 'src' + url.pathname
+//   if (camino == 'static/')
+//     camino = 'static/index.html'
+//     fs.stat(camino, error => {
+//       if (!error) {
+//         fs.readFile(camino, (error, contenido) => {
+//           if (error) {
+//             respuesta.writeHead(500, { 'Content-Type': 'text/plain' })
+//             respuesta.write('Error interno')
+//             respuesta.end()
+//           } else {
+//             const vec = camino.split('.')
+//             const extension = vec[vec.length - 1]
+//             const mimearchivo = mime[extension]
+//             res.writeHead(200, { 'Content-Type': mimearchivo })
+//             res.write(data)
+//             res.end()
+//           }
+ 
+//   });
+
+//   server.listen(8888);
+//     });
+
+ //console.log("URL:"+ url + "method:" + method);
+  //fs.readFile(__dirname + '/src/index.html',function(err, data){
+  //  res.writeHead(200, {'Content-Type': 'text/html'});
+  //  res.write(data)
+   // res.end();
+
 //const express = require('express'); //
 //const app = express();
 //const morgan = require('morgan'); //
