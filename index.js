@@ -15,7 +15,9 @@ const servidor = http.createServer((req, res) => {
   const link = new URL('http://localhost:8888' + req.url)
   const {url , method} = req;
    console.log("URL:"+ url + "method:" + method);
-  let camino = './src' + link.pathname
+  let camino = 'src' + link.pathname
+  console.log("camino:"+ camino)
+  console.log(link+"link")
   if (camino == 'src/')
     camino = './src/index.html'
   fs.stat(camino, error => {
@@ -27,6 +29,7 @@ const servidor = http.createServer((req, res) => {
           res.end()
         } else {
           const vec = camino.split('.')
+          console.log(vec+"vec")
           const extension = vec[vec.length - 1]
           const mimearchivo = mime[extension]
           res.writeHead(200, { 'Content-Type': mimearchivo })
