@@ -48,8 +48,16 @@ const mime = {
 // console.log('Servidor web iniciado')
 
 const server = http.createServer((req,res) => {
-  fs.readFile(__dirname + '/src/index.html',function(err, data){
-      res.writeHead(200, {'Content-Type': 'text/html'});
+  const url = new URL('http://localhost:8888' + req.url)
+  let camino = 'src' + url.pathname
+  if (camino == 'src/')
+    camino = './src/index.html'
+    const vec = camino.split('.')
+   const extension = vec[vec.length - 1]
+    const mimearchivo = mime[extension]
+  console.log(url + ':url')
+  fs.readFile(camino,function(err, data){
+      res.writeHead(200, {'Content-Type': mimearchivo});
       res.write(data)
     res.end();
 
