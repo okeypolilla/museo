@@ -48,7 +48,7 @@ const mime = {
 // console.log('Servidor web iniciado')
 
 const server = http.createServer((req,res) => {
-  const url = new URL('https://museo-mlptb7xen-okeypolilla.vercel.app/' + req.url)
+  const url = new URL('http://localhost:8888' + req.url)
   let camino = 'src' + url.pathname
   if (camino == 'src/')
     camino = './src/index.html'
