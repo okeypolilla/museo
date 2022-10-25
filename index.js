@@ -16,7 +16,7 @@ const servidor = http.createServer((req, res) => {
    //console.log("URL:"+ url + "method:" + method);
   let camino = 'src' + link.pathname
   if (camino == 'src/')
-    camino = 'src/index.html'
+    camino = './src/index.html'
   fs.stat(camino, error => {
     if (!error) {
       fs.readFile(camino, (error, contenido) => {
