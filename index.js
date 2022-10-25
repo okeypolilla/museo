@@ -29,10 +29,10 @@ const servidor = http.createServer((req, res) => {
           res.end()
         } else {
           const vec = camino.split('.')
-          console.log(vec+"vec")
           const extension = vec[vec.length - 1]
+          console.log(extension + ':extension ' )
           const mimearchivo = mime[extension]
-          res.writeHead(200, { 'Content-Type': mimearchivo })
+          res.writeHead(200, { 'Content-Type': 'text/html' })
           res.write(contenido)
           res.end()
         }
