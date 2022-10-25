@@ -9,8 +9,10 @@ const mime = {
 }
 
 const servidor = http.createServer((req, res) => {
-  const url = new URL('http://localhost:8888' + req.url)
-  let camino = 'src' + url.pathname
+  const link = new URL('http://localhost:8888' + req.url)
+  const {url , method} = req;
+   console.log("URL:"+ url + "method:" + method);
+  let camino = 'src' + link.pathname
   if (camino == 'src/')
     camino = 'src/index.html'
   fs.stat(camino, error => {
