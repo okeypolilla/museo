@@ -1,7 +1,7 @@
-const db = require('./database/database');
 const http= require('http');
 const fs = require('fs');
 const pool = require('./database/database');
+
 const mime = {
   'html': 'text/html',
   'css': 'text/css',
@@ -10,11 +10,12 @@ const mime = {
   'mp3': 'audio/mpeg3',
   'mp4': 'video/mp4'
 }
+
 const servidor = http.createServer((req, res) => {
- // const url = new URL('https://museo-okeypolilla.vercel.app' + req.url)
- // const {url , method} = req;
-   //console.log("URL:"+ url + "method:" + method);
-  let camino = 'src' + url.pathname
+  const link = new URL('http://localhost:8888' + req.url)
+  const {url , method} = req;
+   console.log("URL:"+ url + "method:" + method);
+  let camino = 'src' + link.pathname
   if (camino == 'src/')
     camino = './src/index.html'
   fs.stat(camino, error => {
