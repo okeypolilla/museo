@@ -1,11 +1,17 @@
-const express = require("express");
-const router = express.Router();
+const require = ('url').url
+class router {
+    _Routes = []
+    _BaseUrl =  'hhtp://localhost:' + (process.env.port || 8888)
+
+use(url, callback)
+{
+    const url = new Url (url, this._BaseUrl).patch
+    let BasePach = _url.replace(/)
+}}
+
 //const controllers = require("../controladores/usuario.js");
 
-router.get('/', (req, res) => {    
-    res.sendFile('./src/public/index.html', {root: __dirname })
-   
-})
+
 //app.use(express.static(__dirname + '/src/public'))
 
 //rutas usuario 

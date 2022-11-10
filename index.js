@@ -1,7 +1,7 @@
 
  const http= require('http');
  const fs = require('fs');
- const pool = require('./database/database');
+ //const pool = require('./database/database');
 
  const mime = {
   'html': 'text/html',
@@ -47,85 +47,3 @@
 servidor.listen(8888)
 console.log('Servidor web iniciado')
 
-// const server = http.createServer((req,res) => {
-//   const url = new URL('http://localhost:8888' + req.url)
-//   let camino = 'src' + url.pathname
-//   if (camino == 'src/')
-//     camino = './src/index.html'
-//     const vec = camino.split('.')
-//    const extension = vec[vec.length - 1]
-//     const mimearchivo = mime[extension]
-//   console.log(url + ':url')
-//   fs.readFile(camino,function(err, data){
-//       res.writeHead(200, {'Content-Type': mimearchivo});
-//       res.write(data)
-//     res.end();
-
-//   })
-// });
-//    server.listen(8888);
-//    console.log('Servidor web iniciado')
-
-
-
-//  const server = http.createServer((req,res) => {
-//   const url = new URL('http://localhost:8888' + req.url)
-//    let camino = 'src' + url.pathname
-//   if (camino == 'src/')
-//     camino = 'src/index.html'
-//      fs.stat(camino, error => {
-//       if (!error) {
-//         fs.readFile(camino, (error, contenido) => {
-//           if (error) {
-//             res.writeHead(500, { 'Content-Type': 'text/plain' })
-//             res.write('Error interno')
-//             res.end()
-//           } else {
-//             const vec = camino.split('.')
-//             const extension = vec[vec.length - 1]
-//            const mimearchivo = mime[extension]
-//              res.writeHead(200, { 'Content-Type': mimearchivo })
-//             res.write(contenido)
-//              res.end()
-//           }
-//          }) }
-//  });
-
-
-//    });
-//    server.listen(8888);
-//    console.log('Servidor web iniciado')
-
- //console.log("URL:"+ url + "method:" + method);
-  //fs.readFile(__dirname + '/src/index.html',function(err, data){
-  //  res.writeHead(200, {'Content-Type': 'text/html'});
-  //  res.write(data)
-   // res.end();
-
-//const express = require('express'); //
-//const app = express();
-//const morgan = require('morgan'); //
-
-//const pool = require('./database/database.js');
-
-//app.set('port', 8888);
-
-
-//middlewares
-//app.use(morgan('dev')); 
-//app.use(express.json());
-//app.use(express.urlencoded({extended: false}));
-
-//routes 
-//app.use('view engine','ejs');
-//app.use(require("./rutas/index.js"));
-  //Usuario
-//app.use(require('./controladores/users.js'));
-//app.use(express.static(__dirname + '/src/public'))
-
-
-
-//iniciar 
-//app.listen(app.get('port'),()=>{  
- //console.log('Listening on port ',app.get('port'));
-//});
